@@ -1,0 +1,111 @@
+Q 21 SELECT proj_id, proj_name, budget
+FROM projects
+WHERE proj_name LIKE '%a%'
+  AND budget < 300000;
+
+
+Q 22 SELECT 
+    e.emp_name, 
+    d.dept_name, 
+    d.location, 
+    p.proj_name, 
+    p.budget
+FROM 
+    employee e
+INNER JOIN 
+    department d ON e.dept_id = d.dept_id
+INNER JOIN 
+    project p ON e.dept_id = p.dept_id;
+
+Q 23 SELECT 
+    e.emp_id,
+    e.emp_name,
+    d.dept_name,
+    p.proj_name
+FROM 
+    employees e
+LEFT JOIN 
+    departments d ON e.dept_id = d.dept_id
+LEFT JOIN 
+    projects p ON e.emp_id = p.emp_id;
+
+
+Q 24 SELECT 
+    e.emp_name, 
+    e.salary, 
+    d.dept_name, 
+    p.proj_name, 
+    p.budget
+FROM 
+    Employees e
+JOIN 
+    Departments d ON e.dept_id = d.dept_id
+JOIN 
+    Projects p ON d.dept_id = p.dept_id
+WHERE 
+    e.salary > 60000 
+    AND p.budget > 250000;
+
+
+Q 25 SELECT 
+    d.dept_id, 
+    d.dept_name, 
+    e.emp_name, 
+    p.proj_name
+FROM 
+    Departments d
+LEFT JOIN 
+    Employees e ON d.dept_id = e.dept_id
+LEFT JOIN 
+    Projects p ON d.dept_id = p.dept_id;
+
+
+Q 26 SELECT 
+    e.emp_name, 
+    d.location, 
+    p.proj_name
+FROM 
+    Employees e
+JOIN 
+    Departments d ON e.dept_id = d.dept_id
+JOIN 
+    Projects p ON d.dept_id = p.dept_id
+WHERE 
+    d.location IN ('Bangalore', 'Mumbai');
+
+
+Q 27 SELECT 
+    A.emp_name AS employee_1,
+    B.emp_name AS employee_2,
+    A.city
+FROM 
+    employees A
+INNER JOIN 
+    employees B 
+ON 
+    A.city = B.city 
+    AND A.emp_name < B.emp_name;
+
+
+Q 28 SELECT 
+    p.proj_name,
+    p.dept_id,
+    e.emp_name
+FROM 
+    projects p
+LEFT JOIN 
+    employees e 
+ON 
+    p.dept_id = e.dept_id;
+
+
+
+
+
+
+
+
+
+
+
+
